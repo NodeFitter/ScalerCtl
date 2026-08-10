@@ -21,8 +21,6 @@ var setCpuCmd = &cobra.Command{
 			return fmt.Errorf("CPU threshold must be between 1 and 100")
 		}
 
-		fmt.Printf("Ran the SET CPU command with value %d. TODO: implement", cpu)
-
-		return nil
+		return app.UpdateCPUThreshold(float32(cpu))
 	},
 }

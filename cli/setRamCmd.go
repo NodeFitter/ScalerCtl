@@ -22,8 +22,6 @@ var setRamCmd = &cobra.Command{
 			return fmt.Errorf("RAM threshold must be a positive integer")
 		}
 
-		fmt.Printf("Ran the SET RAM command with value %d. TODO: implement", ram)
-
-		return nil
+		return app.UpdateMemThreshold(float64(ram))
 	},
 }
