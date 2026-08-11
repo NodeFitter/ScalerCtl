@@ -108,3 +108,28 @@ func (a *App) VMs() error {
 
 	return nil
 }
+
+func (a *App) Start() error {
+	args := &comms.EmptyArgs{}
+	reply := &comms.EmptyReply{}
+
+	if err := a.RPC.Call("Controller.Start", args, reply); err != nil {
+		return err
+	}
+
+	fmt.Println("Successfully started the scheduling process")
+	return nil
+}
+
+func (a *App) Stop() error {
+	args := &comms.EmptyArgs{}
+	reply := &comms.EmptyReply{}
+
+	if err := a.RPC.Call("Controller.Stop", args, reply); err != nil {
+		return err
+	}
+
+	fmt.Println("Successfully stopped the scheduling process")
+	return nil
+
+}
