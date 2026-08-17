@@ -2,9 +2,11 @@ package context
 
 import (
 	"fmt"
+	"math"
 	"net"
 	"net/rpc"
 	"os"
+	"strconv"
 	"text/tabwriter"
 
 	"github.com/NodeFitter/scalerctl/comms"
@@ -94,12 +96,24 @@ func (a *App) VMs() error {
 	fmt.Fprintln(w, "--\t------\t---\t--------\t-----------\t-------")
 
 	for _, vm := range reply.VMs {
+
+		mem := strconv.FormatFloat(vm.AvailableMem, 'f', -1, 64)
+		cpu := strconv.FormatFloat(float64(vm.AvailableCPU), 'f', -1, 64)
+
+		if vm.AvailableMem == math.MaxFloat64 {
+			mem = "Not Available"
+		}
+
+		if vm.AvailableCPU == math.MaxFloat32 {
+			cpu = "Not Available"
+		}
+
 		fmt.Fprintf(
 			w,
-			"%d\t%.2f\t%.2f\t%s\t%d\t%s\n",
+			"%d\t%s\t%s\t%s\t%d\t%s\n",
 			vm.Id,
-			vm.AvailableMem,
-			vm.AvailableCPU,
+			mem,
+			cpu,
 			vm.VMGroupName,
 			vm.VMTemplateId,
 			vm.InstantiationTimestamp.Format("2006-01-02 15:04:05"),

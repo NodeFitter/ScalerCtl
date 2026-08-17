@@ -1,21 +1,12 @@
 package comms
 
 import (
-	"time"
+	scheduler "github.com/NodeFitter/NodeFitter/scheduler"
 )
 
 /*
 This file contains the types used for communication with the CLI
 */
-
-type Node struct {
-	Id                     int
-	AvailableMem           float64
-	AvailableCPU           float32
-	VMGroupName            string
-	VMTemplateId           int
-	InstantiationTimestamp time.Time
-}
 
 // Get service status
 type StatusArgs struct{}
@@ -40,7 +31,7 @@ type UpdateCPUThresholdReply struct {
 // Print the VMs
 // type PrintVMArgs struct{}
 type PrintVMReply struct {
-	VMs []Node
+	VMs []scheduler.Node
 }
 
 type EmptyArgs struct{}
