@@ -17,7 +17,12 @@ type App struct {
 }
 
 func (a *App) Connect() error {
-	conn, err := net.Dial("unix", "/run/nodefitter/NodeFitter.sock") // TODO: get from configs
+	socket := os.Getenv("NODEFITTER_SOCKET")
+	if socket == "" {
+		socket = "/run/nodefitter/NodeFitter.sock"
+	}
+
+	conn, err := net.Dial("unix", socket)
 	if err != nil {
 		return fmt.Errorf("connect to daemon: %w", err)
 	}
