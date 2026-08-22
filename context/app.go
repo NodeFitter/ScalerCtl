@@ -53,7 +53,7 @@ func (a *App) GetMemThreshold() error {
 		return e
 	}
 
-	fmt.Println("Current free memory threshold set to ", reply.Threshold, " Megabytes")
+	fmt.Println("Current free memory threshold set to", reply.Threshold, "Megabytes")
 	return nil
 }
 
@@ -71,7 +71,7 @@ func (a *App) GetCPUThreshold() error {
 		return e
 	}
 
-	fmt.Println("Current free CPU threshold set to ", reply.Threshold, "%")
+	fmt.Println("Current free CPU threshold set to", reply.Threshold, "%")
 	return nil
 }
 
@@ -134,8 +134,8 @@ func (a *App) VMs() error {
 	)
 	defer w.Flush()
 
-	fmt.Fprintln(w, "ID\tMEMORY\tCPU\tVM GROUP\tTEMPLATE ID\tCREATED")
-	fmt.Fprintln(w, "--\t------\t---\t--------\t-----------\t-------")
+	fmt.Fprintln(w, "ID\tMEMORY\tCPU\tVM GROUP\tTEMPLATE ID\tSAFEGUARD START TIMESTAMP")
+	fmt.Fprintln(w, "--\t------\t---\t--------\t-----------\t-------------------------")
 
 	for _, vm := range reply.VMs {
 
@@ -143,11 +143,11 @@ func (a *App) VMs() error {
 		cpu := strconv.FormatFloat(float64(vm.AvailableCPU), 'f', -1, 64)
 
 		if vm.AvailableMem == math.MaxFloat64 {
-			mem = "Not Available"
+			mem = "N/A"
 		}
 
 		if vm.AvailableCPU == math.MaxFloat32 {
-			cpu = "Not Available"
+			cpu = "N/A"
 		}
 
 		fmt.Fprintf(
