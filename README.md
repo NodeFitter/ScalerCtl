@@ -41,7 +41,10 @@ docker exec <container> /app/scalerctl <subcommand> <args>
 
 The available subcommands are:
 
-- `get`: returns the current _local_ list of VMs. The resource usage gets updated at every scheduling
+- `get`: returns information about VMs and threshold.
+    - `get vms`: to get the current _local_ list of VMs. The resource usage gets updated at every scheduling.
+    - `get cpu`: to get the current CPU threshold.
+    - `get ram`: to get the current memory threshold.
 cycle, otherwise it will appear as "Not Available".
 - `set`: overwrite the current threshold of free resources below which a new VM will be scheduled. The initial
 values come from the `schedulerConfig.yaml` file required by the autoscaler.
