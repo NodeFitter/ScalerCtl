@@ -1,6 +1,7 @@
 package context
 
 import (
+	"errors"
 	"fmt"
 	"math"
 	"net"
@@ -9,7 +10,7 @@ import (
 	"strconv"
 	"text/tabwriter"
 
-	"github.com/NodeFitter/scalerctl/comms"
+	"github.com/NodeFitter/NodeFitter/comms"
 )
 
 type App struct {
@@ -35,6 +36,42 @@ func (a *App) Close() error {
 	if a.RPC != nil {
 		return a.RPC.Close()
 	}
+	return nil
+}
+
+func (a *App) GetMemThreshold() error {
+	args := &comms.EmptyArgs{}
+	reply := &comms.GetMemThresholdReply{}
+
+	if err := a.RPC.Call("Controller.GetMemThreshold", args, reply); err != nil {
+		return err
+	}
+
+	if reply.Error {
+		e := errors.New("Error while obtaining current memory threshold")
+		fmt.Println(e.Error())
+		return e
+	}
+
+	fmt.Println("Current free memory threshold set to ", reply.Threshold, " Megabytes")
+	return nil
+}
+
+func (a *App) GetCPUThreshold() error {
+	args := &comms.EmptyArgs{}
+	reply := &comms.GetCPUThresholdReply{}
+
+	if err := a.RPC.Call("Controller.GetCPUThreshold", args, reply); err != nil {
+		return err
+	}
+
+	if reply.Error {
+		e := errors.New("Error while obtaining current CPU threshold")
+		fmt.Println(e.Error())
+		return e
+	}
+
+	fmt.Println("Current free CPU threshold set to ", reply.Threshold, "%")
 	return nil
 }
 

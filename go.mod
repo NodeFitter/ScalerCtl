@@ -2,7 +2,7 @@ module github.com/NodeFitter/scalerctl
 
 go 1.26.5
 
-require github.com/NodeFitter/NodeFitter v0.0.0-20260817162638-b621760eadb1
+require github.com/NodeFitter/NodeFitter v0.0.0-20260822165411-0b4963e543ee
 
 require (
 	github.com/Azure/go-ansiterm v0.0.0-20230124172434-306776ec8161 // indirect

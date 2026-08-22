@@ -10,8 +10,6 @@ func init() {
 
 var getCmd = &cobra.Command{
 	Use:   "get",
-	Short: "Retrieve a list of VMs and their status",
-	RunE: func(cmd *cobra.Command, args []string) error {
-		return app.VMs()
-	},
+	Short: "Get a resource threshold for VMs",
+	Long:  "Get the threshold for a specified resource, which will become the point where new VMs will be scheduled",
 }

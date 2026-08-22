@@ -4,6 +4,8 @@ github.com/MakeNowJust/heredoc v1.0.0 h1:cXCdzVdstXyiTqTvfqk9SDHpKNjxuom+DOlyEeQ
 github.com/MakeNowJust/heredoc v1.0.0/go.mod h1:mG5amYoWBHf8vpLOuehzbGGw0EHxpZZ6lCpQ4fNJ8LE=
 github.com/NodeFitter/NodeFitter v0.0.0-20260817162638-b621760eadb1 h1:cA8TzlNVMrZZ8ftZ5IHJNyDoIKwlGcJYVHBkXaoF5kI=
 github.com/NodeFitter/NodeFitter v0.0.0-20260817162638-b621760eadb1/go.mod h1:JR7gbJaCSF4GPlbFNZtBaGPysN9IDoVV+hfyTrRaxI4=
+github.com/NodeFitter/NodeFitter v0.0.0-20260822165411-0b4963e543ee h1:+8rYoGW5Yjj/+DW5AtJl3htTXq/PnocYCtMJtQP5nOo=
+github.com/NodeFitter/NodeFitter v0.0.0-20260822165411-0b4963e543ee/go.mod h1:JR7gbJaCSF4GPlbFNZtBaGPysN9IDoVV+hfyTrRaxI4=
 github.com/OpenNebula/one/src/oca/go/src/goca v0.0.0-20260806094655-090bafc6acbc h1:IE1OWa3GeRc8QDRYC/xGmUGcsqYH27dsIYkoZhAwrM8=
 github.com/OpenNebula/one/src/oca/go/src/goca v0.0.0-20260806094655-090bafc6acbc/go.mod h1:GmP9a6u5GtRNRvLFW1kJPb8vLXGYslPeYA4HsZi0LMg=
 github.com/blang/semver/v4 v4.0.0 h1:1PFHFE6yCCTv8C1TeyNNarDzntLi7wMI5i/pzqYIsAM=
